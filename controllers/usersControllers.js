@@ -25,7 +25,7 @@ exports.createNewUser = (req, res) => {
     if(typeof firstName !== "string")
         return res.status(400).json({ error: "That's a weird name !"})
 
-    if (!isAlphanumeric(firstName))
+    if (!isAlphanumeric(firstName) || !isAlphanumeric(lastName))
 		return res.status(400).json({ error: "Ce nom n'est pas autorisé !" })
 
 	db.run(
